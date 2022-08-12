@@ -14,6 +14,27 @@
 ## BaseRecyclerViewAdapterHelper
 RecyclerView 的 Adapter 帮助类，配合 kotlin RecyclerView 扩展，以后编写RecyclerView就不用再写 Adapter 了
 
+RecyclerView 扩展类可参考本库内的 RecyclerExt.kt 文件
+
+使用方法为： 
+
+```
+customViewRv!!
+            .layout()
+            .bindData(dataList, R.layout.item_home_btn) { holder, t ->
+                holder.setText(R.id.btn, t)
+            }.onItemChildClick(R.id.btn) { _, _, position ->
+                when (position) {
+                    0 -> startActivity(Intent(this, ScrollNumberActivity::class.java))
+                    1 -> startActivity(Intent(this, MultipleViewTestActivity::class.java))
+                    2 -> startActivity(Intent(this, ObjectAnimatorTestActivity::class.java))
+                    3 -> startActivity(Intent(this, FontResizeActivity::class.java))
+                }
+            }.onItemClick { _, _, position ->
+                ToastUtil.show("You clicked item $position")
+            }
+```
+
 [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
 
 ## AndroidKTX
