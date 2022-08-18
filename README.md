@@ -4,6 +4,59 @@
 ## [Rxhttp](https://github.com/liujingxing/rxhttp)
 网络请求库，基于OKHttp，支持 kotlin 协程，RxJava2、RxJava3，简单易用
 
+例子：
+在 ViewModel 中:
+
+```
+
+public class NotificationsViewModel extends ViewModel {
+
+    private final MutableLiveData<Music> mResult = new MutableLiveData<>();
+    private final MutableLiveData<String> mError = new MutableLiveData<>();
+
+    public NotificationsViewModel() {}
+
+    public void getMusic(LifecycleOwner owner) {
+        RxHttp.postForm(Constants.RANDOM_MUSIC) // https://api.uomg.com/api/rand.music?format=json
+                .asResponse(Music.class) // 需要自己编写Response 以及 ResponseParse 两个文件，项目 build 后即可使用 asResponse
+//                .asParser(new ResponseParser<Music>() {})
+//                .repeat(10) 轮询请求
+                .to(RxLife.toMain(owner)) 配合 RxLife
+                .subscribe(mResult::setValue, throwable -> mError.setValue(throwable.toString()));
+    }
+
+    public LiveData<Music> getResult() {
+        return mResult;
+    }
+
+    public LiveData<String> getError() {
+        return mError;
+    }
+}
+
+```
+
+在 Activity 或 Fragment 中 :
+
+``` 
+ NotificationsViewModel notificationsViewModel = new ViewModelProvider(this).get(NotificationsViewModel.class);
+ 
+ notificationsViewModel.getMusic(this); 
+
+ notificationsViewModel.getResult().observe(getViewLifecycleOwner(), music -> {
+            if (music != null) {
+                int oldSize = musicList.size();
+                musicList.add(music);
+                adapter.notifyItemInserted(oldSize);
+            }
+        });
+        notificationsViewModel.getError().observe(getViewLifecycleOwner(), error -> {
+            if (error != null && !error.equals("")) {
+                Log.i(TAG, "observe, getError(), error is " + error);
+            }
+        });
+```
+
 
 ## [XXPermission](https://github.com/getActivity/XXPermissions)
 权限请求框架
