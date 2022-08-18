@@ -123,5 +123,9 @@ android 4.4以上沉浸式状态栏和沉浸式导航栏管理
 图片选择器，功能强大，简单易用，还可选择其它媒体文件
 
 
+## [AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize)
+Android 屏幕适配方案
+
+
 P.s. 一些常用且知名度颇高的就不再提了，比如EventBus, Glide, Butterknife 之类的
 持续更新。。。。
