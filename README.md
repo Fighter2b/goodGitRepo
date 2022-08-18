@@ -58,5 +58,17 @@ Android 唯一设备标识解决方案
 Android 原生 UI 框架
 
 
+## [ImmersionBar](https://github.com/gyf-dev/ImmersionBar)
+android 4.4以上沉浸式状态栏和沉浸式导航栏管理
+
+
+## [AgentWeb](https://github.com/Justson/AgentWeb)
+基于 Android Webview 的 Webview 加载库
+
+
+## [PictureSelector](https://github.com/LuckSiege/PictureSelector)
+图片选择器，功能强大，简单易用，还可选择其它媒体文件
+
+
 P.s. 一些常用且知名度颇高的就不再提了，比如EventBus, Glide, Butterknife 之类的
 持续更新。。。。
