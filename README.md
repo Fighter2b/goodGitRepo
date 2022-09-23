@@ -127,5 +127,9 @@ android 4.4以上沉浸式状态栏和沉浸式导航栏管理
 Android 屏幕适配方案
 
 
+## [Luban鲁班压缩](https://github.com/Curzibn/Luban)
+图片压缩库，支持同步异步压缩，压缩快速，效果显著
+
+
 P.s. 一些常用且知名度颇高的就不再提了，比如EventBus, Glide, Butterknife 之类的
 持续更新。。。。
