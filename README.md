@@ -131,5 +131,13 @@ Android 屏幕适配方案
 图片压缩库，支持同步异步压缩，压缩快速，效果显著
 
 
+## [VideoProcessor](https://github.com/yellowcath/VideoProcessor)
+视频压缩，剪辑等处理
+
+
+## [CameraView](https://github.com/natario1/CameraView)
+拍照，录像
+
+
 P.s. 一些常用且知名度颇高的就不再提了，比如EventBus, Glide, Butterknife 之类的
 持续更新。。。。
